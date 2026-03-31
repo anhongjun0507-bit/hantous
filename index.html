@@ -1,14 +1,1325 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hello World</title>
-  <link href='/style.css' rel='stylesheet'>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HantoUS — Korean Startups, Built for America</title>
+<meta name="description" content="HantoUS helps Korean startups enter the US market with American-native landing pages, tech stack setup, and US business infrastructure. Built by a Virginia Tech student.">
+<meta property="og:title" content="HantoUS — Korean Startups, Built for America">
+<meta property="og:description" content="Not just a translation — a full US market transformation. We rebuild your digital presence the way American investors expect it.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://hantous.io">
+<meta name="twitter:card" content="summary_large_image">
+
+<!-- ============================================================ -->
+<!-- STEP 1: Google Analytics 4                                   -->
+<!-- 교체 방법: G-XXXXXXXXXX → 본인 GA4 측정 ID로 변경           -->
+<!-- 발급: analytics.google.com → 관리 → 데이터 스트림 → 측정 ID -->
+<!-- ============================================================ -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX');
+</script>
+
+<!-- ============================================================ -->
+<!-- STEP 2: Microsoft Clarity                                    -->
+<!-- 교체 방법: YOUR_CLARITY_ID → 본인 Clarity 프로젝트 ID로 변경 -->
+<!-- 발급: clarity.microsoft.com → New Project → Tracking Code  -->
+<!-- ============================================================ -->
+<script type="text/javascript">
+  (function(c,l,a,r,i,t,y){
+    c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+    t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+  })(window, document, "clarity", "script", "YOUR_CLARITY_ID");
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink: #0D0D0F;
+    --ink2: #2C2C30;
+    --muted: #6B6B72;
+    --surface: #F5F4F0;
+    --white: #FDFCFB;
+    --accent: #D4440C;
+    --accent2: #FF6B35;
+    --teal: #0B6C5C;
+    --teal-light: #E0F0EC;
+    --gold: #C8922A;
+    --gold-light: #FDF3E0;
+    --border: rgba(13,13,15,0.1);
+    --radius: 14px;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--white);
+    color: var(--ink);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, .display {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 2.5rem;
+    background: rgba(253,252,251,0.9);
+    backdrop-filter: blur(12px);
+    border-bottom: 0.5px solid var(--border);
+  }
+  .logo {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 1.15rem;
+    letter-spacing: -0.03em;
+    color: var(--ink);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .logo-dot { width: 8px; height: 8px; background: var(--accent); border-radius: 50%; display: inline-block; }
+  .nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; }
+  .nav-links a { text-decoration: none; color: var(--muted); font-size: 0.9rem; font-weight: 400; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--ink); }
+  .nav-cta {
+    background: var(--ink);
+    color: var(--white);
+    font-family: 'Syne', sans-serif;
+    font-weight: 600;
+    font-size: 0.85rem;
+    padding: 0.6rem 1.4rem;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.15s;
+    letter-spacing: 0.01em;
+  }
+  .nav-cta:hover { background: var(--accent); transform: translateY(-1px); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding: 7rem 2.5rem 4rem;
+    gap: 4rem;
+    max-width: 1300px;
+    margin: 0 auto;
+  }
+
+  .hero-left {}
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--gold-light);
+    color: var(--gold);
+    font-size: 0.8rem;
+    font-weight: 500;
+    padding: 0.4rem 1rem;
+    border-radius: 50px;
+    margin-bottom: 1.8rem;
+    border: 1px solid rgba(200,146,42,0.2);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+  .hero-badge-dot { width: 6px; height: 6px; background: var(--gold); border-radius: 50%; animation: pulse 2s infinite; }
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
+
+  .hero h1 {
+    font-size: clamp(2.8rem, 5vw, 4.2rem);
+    color: var(--ink);
+    margin-bottom: 1.5rem;
+    max-width: 560px;
+  }
+  .hero h1 em { font-style: normal; color: var(--accent); }
+  .hero h1 .underline-wrap { position: relative; display: inline-block; }
+  .hero h1 .underline-wrap::after {
+    content: '';
+    position: absolute;
+    bottom: 2px; left: 0; right: 0;
+    height: 4px;
+    background: var(--accent2);
+    opacity: 0.4;
+    border-radius: 2px;
+  }
+
+  .hero-desc {
+    font-size: 1.1rem;
+    color: var(--muted);
+    max-width: 480px;
+    margin-bottom: 2.5rem;
+    line-height: 1.75;
+    font-weight: 300;
+  }
+  .hero-desc strong { color: var(--ink); font-weight: 500; }
+
+  .hero-actions { display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; }
+  .btn-primary {
+    background: var(--accent);
+    color: #fff;
+    font-family: 'Syne', sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 0.9rem 2rem;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: inline-flex; align-items: center; gap: 8px;
+  }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(212,68,12,0.3); }
+  .btn-secondary {
+    color: var(--ink);
+    font-size: 0.95rem;
+    font-weight: 400;
+    text-decoration: none;
+    display: inline-flex; align-items: center; gap: 6px;
+    border-bottom: 1px solid var(--ink);
+    padding-bottom: 2px;
+    transition: color 0.2s;
+  }
+  .btn-secondary:hover { color: var(--accent); border-color: var(--accent); }
+
+  .hero-social-proof {
+    margin-top: 2.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  .avatars { display: flex; }
+  .avatar {
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    border: 2px solid var(--white);
+    margin-left: -8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: #fff;
+  }
+  .avatar:first-child { margin-left: 0; }
+  .proof-text { font-size: 0.82rem; color: var(--muted); line-height: 1.4; }
+  .proof-text strong { color: var(--ink); }
+
+  .hero-right {
+    position: relative;
+  }
+  .hero-mockup {
+    background: var(--ink);
+    border-radius: 20px;
+    padding: 1.5rem;
+    box-shadow: 0 40px 80px rgba(13,13,15,0.2);
+    transform: perspective(1000px) rotateY(-4deg) rotateX(2deg);
+    transition: transform 0.4s;
+  }
+  .hero-mockup:hover { transform: perspective(1000px) rotateY(-1deg) rotateX(1deg); }
+  .mockup-bar {
+    display: flex; align-items: center; gap: 6px;
+    margin-bottom: 1rem;
+  }
+  .mockup-dot { width: 10px; height: 10px; border-radius: 50%; }
+  .mockup-url {
+    flex: 1;
+    background: rgba(255,255,255,0.08);
+    border-radius: 6px;
+    padding: 5px 10px;
+    font-size: 0.72rem;
+    color: rgba(255,255,255,0.4);
+    font-family: 'DM Sans', monospace;
+  }
+  .mockup-body { background: var(--white); border-radius: 12px; overflow: hidden; }
+  .mock-hero-section {
+    background: linear-gradient(135deg, #0B1728 0%, #1a2a4a 100%);
+    padding: 2rem;
+    text-align: center;
+  }
+  .mock-hero-section .mock-tag {
+    background: rgba(255,107,53,0.2);
+    color: #FF6B35;
+    font-size: 0.65rem;
+    padding: 3px 10px;
+    border-radius: 50px;
+    display: inline-block;
+    margin-bottom: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+  }
+  .mock-hero-section h3 { color: #fff; font-size: 1.1rem; font-family: 'Syne',sans-serif; font-weight: 700; margin-bottom: 0.5rem; }
+  .mock-hero-section p { color: rgba(255,255,255,0.55); font-size: 0.72rem; }
+  .mock-cta {
+    background: #FF6B35;
+    color: #fff;
+    font-size: 0.7rem;
+    font-weight: 600;
+    padding: 8px 18px;
+    border-radius: 50px;
+    display: inline-block;
+    margin-top: 1rem;
+    font-family: 'Syne', sans-serif;
+  }
+  .mock-metrics {
+    display: grid; grid-template-columns: 1fr 1fr 1fr;
+    gap: 1px; background: var(--border);
+  }
+  .mock-metric { background: var(--white); padding: 0.8rem; text-align: center; }
+  .mock-metric .num { font-size: 1rem; font-weight: 700; font-family: 'Syne',sans-serif; color: var(--ink); }
+  .mock-metric .lbl { font-size: 0.6rem; color: var(--muted); margin-top: 2px; }
+  .mock-features {
+    padding: 1rem;
+    display: flex; flex-direction: column; gap: 6px;
+  }
+  .mock-feature-row {
+    display: flex; align-items: center; gap: 8px;
+    background: var(--surface);
+    border-radius: 8px;
+    padding: 8px 10px;
+  }
+  .mock-feature-icon { width: 20px; height: 20px; border-radius: 6px; flex-shrink: 0; }
+  .mock-feature-text { font-size: 0.65rem; color: var(--ink2); }
+
+  .hero-float-card {
+    position: absolute;
+    bottom: -1rem;
+    left: -2rem;
+    background: var(--white);
+    border-radius: 14px;
+    padding: 1rem 1.2rem;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+    border: 1px solid var(--border);
+    max-width: 220px;
+    animation: floatCard 3s ease-in-out infinite;
+  }
+  @keyframes floatCard { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-6px)} }
+  .float-card-label { font-size: 0.7rem; color: var(--muted); margin-bottom: 4px; }
+  .float-card-value { font-size: 1.2rem; font-weight: 700; font-family: 'Syne',sans-serif; color: var(--teal); }
+  .float-card-sub { font-size: 0.7rem; color: var(--muted); margin-top: 2px; }
+
+  /* LOGO TICKER */
+  .ticker-section { background: var(--ink); padding: 1.2rem 0; overflow: hidden; }
+  .ticker-track {
+    display: flex; gap: 3rem; align-items: center;
+    animation: ticker 20s linear infinite;
+    white-space: nowrap;
+    width: max-content;
+  }
+  @keyframes ticker { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
+  .ticker-item { color: rgba(255,255,255,0.4); font-size: 0.85rem; font-weight: 500; letter-spacing: 0.05em; }
+  .ticker-item span { color: rgba(255,255,255,0.15); margin-left: 3rem; }
+
+  /* SECTION SHARED */
+  section { padding: 6rem 2.5rem; }
+  .container { max-width: 1200px; margin: 0 auto; }
+  .section-label {
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1rem;
+  }
+  .section-title { font-size: clamp(2rem, 4vw, 3rem); color: var(--ink); margin-bottom: 1.5rem; }
+  .section-desc { font-size: 1.05rem; color: var(--muted); max-width: 560px; line-height: 1.75; font-weight: 300; }
+
+  /* PROBLEM/OPPORTUNITY */
+  .problem-section { background: var(--surface); }
+  .problem-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+  .problem-stats { display: flex; flex-direction: column; gap: 1.5rem; }
+  .stat-card {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 1.2rem;
+    border: 1px solid var(--border);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .stat-card:hover { transform: translateY(-3px); box-shadow: 0 12px 30px rgba(0,0,0,0.08); }
+  .stat-icon {
+    width: 48px; height: 48px;
+    border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.3rem;
+    flex-shrink: 0;
+  }
+  .stat-card h3 { font-size: 1.6rem; color: var(--ink); font-family: 'Syne',sans-serif; }
+  .stat-card p { font-size: 0.85rem; color: var(--muted); line-height: 1.5; margin-top: 4px; }
+
+  /* WHAT WE DO */
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 4rem;
+  }
+  .service-card {
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 2rem;
+    transition: all 0.25s;
+    position: relative;
+    overflow: hidden;
+  }
+  .service-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    border-radius: 18px 18px 0 0;
+  }
+  .service-card.accent1::before { background: var(--accent); }
+  .service-card.accent2::before { background: var(--teal); }
+  .service-card.accent3::before { background: var(--gold); }
+  .service-card:hover { transform: translateY(-4px); box-shadow: 0 20px 50px rgba(0,0,0,0.1); }
+
+  .service-num {
+    font-family: 'Syne', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 800;
+    color: var(--muted);
+    letter-spacing: 0.1em;
+    margin-bottom: 1rem;
+  }
+  .service-icon {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    display: block;
+  }
+  .service-card h3 { font-size: 1.15rem; color: var(--ink); margin-bottom: 0.75rem; font-family: 'Syne',sans-serif; }
+  .service-card p { font-size: 0.88rem; color: var(--muted); line-height: 1.65; }
+  .service-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 1.2rem; }
+  .tag {
+    font-size: 0.72rem;
+    padding: 3px 10px;
+    border-radius: 50px;
+    background: var(--surface);
+    color: var(--ink2);
+    border: 1px solid var(--border);
+  }
+
+  /* HOW IT WORKS */
+  .process-section { background: var(--ink); color: var(--white); }
+  .process-section .section-label { color: var(--accent2); }
+  .process-section .section-title { color: var(--white); }
+  .process-steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    margin-top: 4rem;
+    position: relative;
+  }
+  .process-steps::before {
+    content: '';
+    position: absolute;
+    top: 28px; left: 12%; right: 12%;
+    height: 1px;
+    background: rgba(255,255,255,0.1);
+  }
+  .step {
+    text-align: center;
+    padding: 0 1rem;
+    position: relative;
+  }
+  .step-num {
+    width: 56px; height: 56px;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,0.15);
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 1.5rem;
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: var(--white);
+    background: rgba(255,255,255,0.05);
+    position: relative;
+    z-index: 1;
+    transition: background 0.2s, border-color 0.2s;
+  }
+  .step:hover .step-num { background: var(--accent); border-color: var(--accent); }
+  .step-emoji { font-size: 1.5rem; margin-bottom: 0.8rem; }
+  .step h3 { font-size: 1rem; color: var(--white); font-family: 'Syne',sans-serif; margin-bottom: 0.5rem; }
+  .step p { font-size: 0.82rem; color: rgba(255,255,255,0.45); line-height: 1.6; }
+  .step-tag {
+    display: inline-block;
+    font-size: 0.7rem;
+    padding: 3px 10px;
+    border-radius: 50px;
+    background: rgba(212,68,12,0.2);
+    color: var(--accent2);
+    margin-top: 0.8rem;
+  }
+
+  /* PORTFOLIO */
+  .portfolio-section { background: var(--surface); }
+  .portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+  .portfolio-card {
+    background: var(--white);
+    border-radius: 18px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    transition: transform 0.25s, box-shadow 0.25s;
+  }
+  .portfolio-card:hover { transform: translateY(-5px); box-shadow: 0 24px 60px rgba(0,0,0,0.12); }
+  .portfolio-preview {
+    height: 200px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 2.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .portfolio-preview .overlay-text {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    padding: 1rem;
+    background: linear-gradient(transparent, rgba(0,0,0,0.7));
+  }
+  .overlay-text .p-name { font-family: 'Syne',sans-serif; font-weight: 700; font-size: 1rem; color: #fff; }
+  .overlay-text .p-cat { font-size: 0.72rem; color: rgba(255,255,255,0.65); }
+  .portfolio-info { padding: 1.2rem; }
+  .portfolio-info h4 { font-size: 0.95rem; font-family: 'Syne',sans-serif; color: var(--ink); margin-bottom: 0.4rem; }
+  .portfolio-info p { font-size: 0.8rem; color: var(--muted); line-height: 1.5; }
+  .portfolio-info .p-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 0.8rem; }
+  .p-badge { font-size: 0.68rem; padding: 2px 8px; border-radius: 50px; }
+  .p-badge.teal { background: var(--teal-light); color: var(--teal); }
+  .p-badge.gold { background: var(--gold-light); color: var(--gold); }
+  .p-badge.red { background: #FDEEE8; color: var(--accent); }
+
+  /* PRICING */
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 4rem;
+    align-items: start;
+  }
+  .pricing-card {
+    border-radius: 20px;
+    padding: 2rem;
+    border: 1px solid var(--border);
+    position: relative;
+  }
+  .pricing-card.featured {
+    background: var(--ink);
+    color: var(--white);
+    border-color: var(--ink);
+  }
+  .pricing-badge {
+    position: absolute;
+    top: -12px; left: 50%;
+    transform: translateX(-50%);
+    background: var(--accent);
+    color: #fff;
+    font-size: 0.72rem;
+    font-weight: 600;
+    font-family: 'Syne', sans-serif;
+    padding: 4px 16px;
+    border-radius: 50px;
+    white-space: nowrap;
+    letter-spacing: 0.05em;
+  }
+  .price-tier { font-size: 0.8rem; color: var(--muted); font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 0.5rem; }
+  .pricing-card.featured .price-tier { color: rgba(255,255,255,0.5); }
+  .price-amount {
+    font-family: 'Syne', sans-serif;
+    font-size: 2.8rem;
+    font-weight: 800;
+    color: var(--ink);
+    line-height: 1;
+    margin-bottom: 0.25rem;
+  }
+  .pricing-card.featured .price-amount { color: var(--white); }
+  .price-note { font-size: 0.78rem; color: var(--muted); margin-bottom: 1.5rem; }
+  .pricing-card.featured .price-note { color: rgba(255,255,255,0.4); }
+  .price-divider { border: none; border-top: 1px solid var(--border); margin: 1.5rem 0; }
+  .pricing-card.featured .price-divider { border-top-color: rgba(255,255,255,0.1); }
+  .price-features { list-style: none; display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 2rem; }
+  .price-features li { font-size: 0.88rem; display: flex; align-items: flex-start; gap: 10px; }
+  .price-features li::before { content: '✓'; color: var(--teal); font-weight: 600; flex-shrink: 0; }
+  .pricing-card.featured .price-features li { color: rgba(255,255,255,0.8); }
+  .pricing-card.featured .price-features li::before { color: var(--accent2); }
+  .btn-pricing {
+    display: block;
+    text-align: center;
+    padding: 0.85rem;
+    border-radius: 50px;
+    font-family: 'Syne', sans-serif;
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+  .btn-pricing.outline { border: 1.5px solid var(--border); color: var(--ink); }
+  .btn-pricing.outline:hover { border-color: var(--ink); background: var(--ink); color: var(--white); }
+  .btn-pricing.filled { background: var(--accent); color: #fff; border: none; }
+  .btn-pricing.filled:hover { background: #b83a0a; transform: translateY(-1px); }
+
+  /* DIFFERENTIATORS */
+  .diff-section { background: var(--white); }
+  .diff-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+  .diff-cards { display: flex; flex-direction: column; gap: 1rem; }
+  .diff-card {
+    display: flex; gap: 1rem; align-items: flex-start;
+    padding: 1.2rem;
+    border-radius: 14px;
+    border: 1px solid var(--border);
+    transition: box-shadow 0.2s;
+  }
+  .diff-card:hover { box-shadow: 0 8px 20px rgba(0,0,0,0.07); }
+  .diff-card-icon { font-size: 1.5rem; flex-shrink: 0; }
+  .diff-card h4 { font-size: 0.95rem; color: var(--ink); font-family: 'Syne',sans-serif; margin-bottom: 4px; }
+  .diff-card p { font-size: 0.82rem; color: var(--muted); line-height: 1.5; }
+
+  /* TESTIMONIALS */
+  .testimonials-section { background: var(--surface); }
+  .testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3rem; }
+  .testimonial-card {
+    background: var(--white);
+    border-radius: 18px;
+    padding: 1.8rem;
+    border: 1px solid var(--border);
+  }
+  .quote-icon { font-size: 2rem; color: var(--accent); opacity: 0.3; line-height: 1; margin-bottom: 1rem; }
+  .testimonial-card blockquote { font-size: 0.9rem; color: var(--ink2); line-height: 1.7; font-style: italic; margin-bottom: 1.5rem; }
+  .testimonial-author { display: flex; align-items: center; gap: 10px; }
+  .testimonial-avatar {
+    width: 38px; height: 38px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.75rem; font-weight: 600; color: #fff;
+    flex-shrink: 0;
+  }
+  .t-name { font-size: 0.85rem; font-weight: 600; color: var(--ink); }
+  .t-role { font-size: 0.75rem; color: var(--muted); }
+
+  /* CTA */
+  .cta-section {
+    background: var(--ink);
+    color: var(--white);
+    text-align: center;
+    padding: 8rem 2.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .cta-section::before {
+    content: '';
+    position: absolute;
+    top: -200px; left: 50%;
+    transform: translateX(-50%);
+    width: 600px; height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(212,68,12,0.15) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .cta-section h2 { font-size: clamp(2.2rem, 5vw, 3.5rem); color: var(--white); margin-bottom: 1.5rem; max-width: 700px; margin-left: auto; margin-right: auto; }
+  .cta-section p { font-size: 1.05rem; color: rgba(255,255,255,0.5); margin-bottom: 3rem; max-width: 500px; margin-left: auto; margin-right: auto; }
+  .cta-actions { display: flex; align-items: center; justify-content: center; gap: 1.2rem; flex-wrap: wrap; }
+  .btn-cta-white {
+    background: var(--white);
+    color: var(--ink);
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    padding: 1rem 2.2rem;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: all 0.2s;
+    display: inline-flex; align-items: center; gap: 8px;
+  }
+  .btn-cta-white:hover { background: var(--accent2); color: #fff; transform: translateY(-2px); }
+  .btn-cta-ghost {
+    color: rgba(255,255,255,0.6);
+    font-size: 0.9rem;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+    padding-bottom: 2px;
+    transition: color 0.2s;
+  }
+  .btn-cta-ghost:hover { color: var(--white); }
+
+  /* FOOTER */
+  footer {
+    background: var(--ink);
+    color: rgba(255,255,255,0.4);
+    padding: 3rem 2.5rem;
+    border-top: 1px solid rgba(255,255,255,0.05);
+  }
+  .footer-inner {
+    max-width: 1200px; margin: 0 auto;
+    display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: 1rem;
+  }
+  .footer-logo { font-family: 'Syne',sans-serif; font-weight: 800; color: var(--white); font-size: 1rem; }
+  .footer-links { display: flex; gap: 2rem; }
+  .footer-links a { color: rgba(255,255,255,0.4); font-size: 0.85rem; text-decoration: none; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--white); }
+  .footer-copy { font-size: 0.78rem; }
+
+  /* RESPONSIVE */
+  @media (max-width: 1000px) {
+    .hero { grid-template-columns: 1fr; text-align: center; }
+    .hero-desc, .hero h1 { max-width: 100%; }
+    .hero-actions { justify-content: center; }
+    .hero-social-proof { justify-content: center; }
+    .hero-right { display: none; }
+    .problem-grid, .diff-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .services-grid, .portfolio-grid, .pricing-grid, .testimonials-grid { grid-template-columns: 1fr; }
+    .process-steps { grid-template-columns: 1fr 1fr; }
+    .process-steps::before { display: none; }
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+  }
+</style>
 </head>
 <body>
-  <h1>Hello, world!</h1>
-  <button onclick="console.log('hello');">Press me</button>
-  <script defer type="text/javascript" src="/main.js"></script>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="logo">
+    <span class="logo-dot"></span>
+    HantoUS
+  </a>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#portfolio">Portfolio</a></li>
+    <li><a href="#pricing">Pricing</a></li>
+    <li><a href="#about">About</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">Get Your Free Audit →</a>
+</nav>
+
+<!-- HERO -->
+<section style="padding: 0;">
+  <div class="hero">
+    <div class="hero-left">
+      <div class="hero-badge">
+        <span class="hero-badge-dot"></span>
+        Virginia Tech Student · US Market Expert
+      </div>
+      <h1>Your Korean Startup,<br><em>Built for</em> <span class="underline-wrap">America</span></h1>
+      <p class="hero-desc">
+        Not just a translation — a full <strong>US market transformation.</strong> We rebuild your digital presence the way American investors and customers actually expect it.
+      </p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn-primary">Start Your Project →</a>
+        <a href="#portfolio" class="btn-secondary">See Examples ↓</a>
+      </div>
+      <div class="hero-social-proof">
+        <div class="avatars">
+          <div class="avatar" style="background:#0B6C5C">KJ</div>
+          <div class="avatar" style="background:#D4440C">SM</div>
+          <div class="avatar" style="background:#C8922A">HY</div>
+          <div class="avatar" style="background:#2C2C30">PL</div>
+        </div>
+        <div class="proof-text">
+          Trusted by <strong>Korean founders</strong> expanding to the US<br>
+          ⭐⭐⭐⭐⭐ 5.0 from early clients
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-right">
+      <div class="hero-mockup">
+        <div class="mockup-bar">
+          <div class="mockup-dot" style="background:#FF5F57"></div>
+          <div class="mockup-dot" style="background:#FEBC2E"></div>
+          <div class="mockup-dot" style="background:#28C840"></div>
+          <div class="mockup-url">www.yourstartup.com</div>
+        </div>
+        <div class="mockup-body">
+          <div class="mock-hero-section">
+            <div class="mock-tag">NOW IN THE US MARKET</div>
+            <h3>AI-Powered Analytics<br>for SMBs</h3>
+            <p>Trusted by 2,000+ businesses in Asia</p>
+            <div class="mock-cta">Get Started Free →</div>
+          </div>
+          <div class="mock-metrics">
+            <div class="mock-metric">
+              <div class="num">2,000+</div>
+              <div class="lbl">Active Users</div>
+            </div>
+            <div class="mock-metric">
+              <div class="num">99.9%</div>
+              <div class="lbl">Uptime</div>
+            </div>
+            <div class="mock-metric">
+              <div class="num">4.9★</div>
+              <div class="lbl">App Rating</div>
+            </div>
+          </div>
+          <div class="mock-features">
+            <div class="mock-feature-row">
+              <div class="mock-feature-icon" style="background:#E0F0EC"></div>
+              <div class="mock-feature-text">Real-time dashboard with AI insights</div>
+            </div>
+            <div class="mock-feature-row">
+              <div class="mock-feature-icon" style="background:#FDF3E0"></div>
+              <div class="mock-feature-text">Stripe-integrated billing & subscriptions</div>
+            </div>
+            <div class="mock-feature-row">
+              <div class="mock-feature-icon" style="background:#FDEEE8"></div>
+              <div class="mock-feature-text">SOC 2 compliant data security</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-float-card">
+        <div class="float-card-label">Avg. conversion uplift</div>
+        <div class="float-card-value">+312%</div>
+        <div class="float-card-sub">after US market redesign</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker-section">
+  <div class="ticker-track">
+    <span class="ticker-item">Cloudflare Pages<span>·</span></span>
+    <span class="ticker-item">Supabase Auth<span>·</span></span>
+    <span class="ticker-item">Stripe Global<span>·</span></span>
+    <span class="ticker-item">React + TypeScript<span>·</span></span>
+    <span class="ticker-item">Google Analytics<span>·</span></span>
+    <span class="ticker-item">Formspree<span>·</span></span>
+    <span class="ticker-item">Delaware Corp<span>·</span></span>
+    <span class="ticker-item">Mercury Banking<span>·</span></span>
+    <span class="ticker-item">RevenueCat<span>·</span></span>
+    <span class="ticker-item">Cloudflare Pages<span>·</span></span>
+    <span class="ticker-item">Supabase Auth<span>·</span></span>
+    <span class="ticker-item">Stripe Global<span>·</span></span>
+    <span class="ticker-item">React + TypeScript<span>·</span></span>
+    <span class="ticker-item">Google Analytics<span>·</span></span>
+    <span class="ticker-item">Formspree<span>·</span></span>
+    <span class="ticker-item">Delaware Corp<span>·</span></span>
+    <span class="ticker-item">Mercury Banking<span>·</span></span>
+    <span class="ticker-item">RevenueCat<span>·</span></span>
+  </div>
+</div>
+
+<!-- PROBLEM/OPPORTUNITY -->
+<section class="problem-section" id="about">
+  <div class="container">
+    <div class="problem-grid">
+      <div>
+        <div class="section-label">The Opportunity</div>
+        <h2 class="section-title">Most Korean companies are invisible in America</h2>
+        <p class="section-desc">
+          The problem isn't your product. It's how you present it. American investors and customers have completely different expectations — from content structure to visual hierarchy to trust signals.
+        </p>
+        <br><br>
+        <p class="section-desc">
+          A direct translation doesn't fix this. You need a partner who lives in both worlds — fluent in Korean business culture <em>and</em> American UX expectations.
+        </p>
+      </div>
+      <div class="problem-stats">
+        <div class="stat-card">
+          <div class="stat-icon" style="background:#FDEEE8; font-size:1.4rem">🌐</div>
+          <div>
+            <h3>73%</h3>
+            <p>of Korean B2B companies have no English website or a broken one that fails global audits</p>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon" style="background:#E0F0EC; font-size:1.4rem">📉</div>
+          <div>
+            <h3>8 sec</h3>
+            <p>Average time a US investor spends on a poorly localized site before bouncing — permanently</p>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon" style="background:#FDF3E0; font-size:1.4rem">💰</div>
+          <div>
+            <h3>$847B</h3>
+            <p>US SaaS market size — the largest in the world, and most Korean startups aren't even visible in it</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="container">
+    <div class="section-label">What We Build</div>
+    <h2 class="section-title">A complete US digital<br>market entry system</h2>
+    <div class="services-grid">
+      <div class="service-card accent1">
+        <div class="service-num">01</div>
+        <span class="service-icon">🎯</span>
+        <h3>US-Native Landing Page</h3>
+        <p>We don't translate your Korean site. We rebuild it from scratch using American UX conventions, copywriting frameworks (AIDA, PAS), and conversion-focused design.</p>
+        <div class="service-tags">
+          <span class="tag">Hero + CTA</span>
+          <span class="tag">Social Proof</span>
+          <span class="tag">US Copywriting</span>
+          <span class="tag">Fast Load</span>
+        </div>
+      </div>
+      <div class="service-card accent2">
+        <div class="service-num">02</div>
+        <span class="service-icon">⚡</span>
+        <h3>Tech Stack & Deployment</h3>
+        <p>Built on the modern indie stack — React, Cloudflare Pages, Formspree, Google Analytics — everything optimized for global performance and US-based SEO.</p>
+        <div class="service-tags">
+          <span class="tag">React + Vite</span>
+          <span class="tag">Cloudflare CDN</span>
+          <span class="tag">Stripe Ready</span>
+          <span class="tag">SEO Setup</span>
+        </div>
+      </div>
+      <div class="service-card accent3">
+        <div class="service-num">03</div>
+        <span class="service-icon">🏢</span>
+        <h3>US Business Foundation</h3>
+        <p>Optional full stack — Delaware LLC via Stripe Atlas, Mercury bank account, US address via Stable, and a US phone number with AI receptionist.</p>
+        <div class="service-tags">
+          <span class="tag">Stripe Atlas</span>
+          <span class="tag">Mercury Bank</span>
+          <span class="tag">US Address</span>
+          <span class="tag">US Phone</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="process-section">
+  <div class="container">
+    <div class="section-label">Process</div>
+    <h2 class="section-title" style="color:var(--white)">From Korean startup to<br>US-ready in 2 weeks</h2>
+    <div class="process-steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-emoji">📋</div>
+        <h3>Discovery Call</h3>
+        <p>We learn your product, market, and goals. 30 min free consultation.</p>
+        <span class="step-tag">Day 1</span>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-emoji">✍️</div>
+        <h3>US Copywriting</h3>
+        <p>We write English copy that converts — not Google Translate.</p>
+        <span class="step-tag">Days 2–4</span>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-emoji">🎨</div>
+        <h3>Design & Build</h3>
+        <p>We design and code your landing page with full US UX patterns.</p>
+        <span class="step-tag">Days 5–12</span>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-emoji">🚀</div>
+        <h3>Deploy & Track</h3>
+        <p>Live on Cloudflare with Analytics and conversion tracking set up.</p>
+        <span class="step-tag">Days 13–14</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section class="portfolio-section" id="portfolio">
+  <div class="container">
+    <div class="section-label">Portfolio</div>
+    <h2 class="section-title">Built for the US market</h2>
+    <p class="section-desc">Sample projects — fictional Korean startups rebuilt with American UX, copy, and infrastructure.</p>
+    <div class="portfolio-grid">
+      <div class="portfolio-card">
+        <div class="portfolio-preview" style="background:linear-gradient(135deg,#0B1728,#1E3A5F)">
+          <div style="font-size:2.5rem">🤖</div>
+          <div class="overlay-text">
+            <div class="p-name">NeuralKorea AI</div>
+            <div class="p-cat">B2B SaaS · AI Analytics</div>
+          </div>
+        </div>
+        <div class="portfolio-info">
+          <h4>Enterprise AI analytics platform</h4>
+          <p>Rebuilt from a Korean corporate site into a Stripe-integrated, investor-ready US SaaS landing page.</p>
+          <div class="p-tags">
+            <span class="p-badge teal">React + TS</span>
+            <span class="p-badge gold">Stripe</span>
+            <span class="p-badge red">Supabase Auth</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="portfolio-card">
+        <div class="portfolio-preview" style="background:linear-gradient(135deg,#2D0B0B,#6B1A1A)">
+          <div style="font-size:2.5rem">🛒</div>
+          <div class="overlay-text">
+            <div class="p-name">SeoulCommerce</div>
+            <div class="p-cat">DTC E-commerce · K-Beauty</div>
+          </div>
+        </div>
+        <div class="portfolio-info">
+          <h4>K-Beauty DTC brand launch</h4>
+          <p>US-native Shopify-alternative landing page optimized for Meta ads traffic, with Formspree waitlist capture.</p>
+          <div class="p-tags">
+            <span class="p-badge teal">Cloudflare CDN</span>
+            <span class="p-badge gold">Formspree</span>
+            <span class="p-badge red">A/B Tested</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="portfolio-card">
+        <div class="portfolio-preview" style="background:linear-gradient(135deg,#0B2D1C,#1A5C39)">
+          <div style="font-size:2.5rem">🏥</div>
+          <div class="overlay-text">
+            <div class="p-name">MediFlow Korea</div>
+            <div class="p-cat">HealthTech · B2B SaaS</div>
+          </div>
+        </div>
+        <div class="portfolio-info">
+          <h4>HealthTech platform for US clinics</h4>
+          <p>HIPAA-aware messaging, trust-first design, Calendly integration for enterprise demo bookings.</p>
+          <div class="p-tags">
+            <span class="p-badge teal">HIPAA Aware</span>
+            <span class="p-badge gold">Calendly</span>
+            <span class="p-badge red">Dark/Light</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing">
+  <div class="container">
+    <div class="section-label">Pricing</div>
+    <h2 class="section-title">Simple, transparent pricing</h2>
+    <p class="section-desc">No hidden fees. No bloated agency overhead. Student pricing with professional execution.</p>
+    <div class="pricing-grid">
+      <div class="pricing-card">
+        <div class="price-tier">Starter</div>
+        <div class="price-amount">$499</div>
+        <div class="price-note">One-time · delivered in 7 days</div>
+        <hr class="price-divider">
+        <ul class="price-features">
+          <li>Single-page landing page</li>
+          <li>US-native copywriting (1 revision)</li>
+          <li>Mobile responsive design</li>
+          <li>Contact form via Formspree</li>
+          <li>Google Analytics setup</li>
+          <li>Cloudflare Pages deployment</li>
+        </ul>
+        <a href="#contact" class="btn-pricing outline">Get Started</a>
+      </div>
+
+      <div class="pricing-card featured">
+        <div class="pricing-badge">Most Popular</div>
+        <div class="price-tier">Growth</div>
+        <div class="price-amount">$1,299</div>
+        <div class="price-note">One-time · delivered in 14 days</div>
+        <hr class="price-divider">
+        <ul class="price-features">
+          <li>Multi-section landing page</li>
+          <li>Full US copywriting (3 revisions)</li>
+          <li>Custom animations & micro-interactions</li>
+          <li>Stripe payment integration</li>
+          <li>Google Analytics + Clarity heatmaps</li>
+          <li>SEO meta tags & Open Graph</li>
+          <li>30-day post-launch support</li>
+        </ul>
+        <a href="#contact" class="btn-pricing filled">Start Project →</a>
+      </div>
+
+      <div class="pricing-card">
+        <div class="price-tier">Full Stack</div>
+        <div class="price-amount">$2,999</div>
+        <div class="price-note">One-time + optional monthly retainer</div>
+        <hr class="price-divider">
+        <ul class="price-features">
+          <li>Everything in Growth</li>
+          <li>US LLC formation (Stripe Atlas)</li>
+          <li>Mercury bank account setup</li>
+          <li>US address + phone number</li>
+          <li>Supabase auth + user dashboard</li>
+          <li>Acquire.com listing strategy</li>
+          <li>90-day growth advisory</li>
+        </ul>
+        <a href="#contact" class="btn-pricing outline">Let's Talk</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DIFFERENTIATORS -->
+<section class="diff-section" id="about">
+  <div class="container">
+    <div class="diff-grid">
+      <div>
+        <div class="section-label">Why Us</div>
+        <h2 class="section-title">The unfair advantage agencies can't offer</h2>
+        <p class="section-desc" style="margin-bottom: 2rem">
+          I'm a Virginia Tech CS student who grew up in Korea and lives in America now. I don't just build websites — I translate cultures.
+        </p>
+        <p class="section-desc">
+          Traditional agencies charge $10K+ and take 3 months. I deliver faster, more authentically, for a fraction of the cost.
+        </p>
+      </div>
+      <div class="diff-cards">
+        <div class="diff-card">
+          <div class="diff-card-icon">🇺🇸</div>
+          <div>
+            <h4>Real US market intuition</h4>
+            <p>As a Virginia Tech student, I experience American digital culture daily — not just read about it.</p>
+          </div>
+        </div>
+        <div class="diff-card">
+          <div class="diff-card-icon">🇰🇷</div>
+          <div>
+            <h4>Korean business fluency</h4>
+            <p>I understand Korean startup culture, hierarchies, and what makes Korean products special.</p>
+          </div>
+        </div>
+        <div class="diff-card">
+          <div class="diff-card-icon">⚡</div>
+          <div>
+            <h4>Modern indie dev stack</h4>
+            <p>React, Cloudflare, Stripe, Supabase — the same stack powering profitable US startups right now.</p>
+          </div>
+        </div>
+        <div class="diff-card">
+          <div class="diff-card-icon">💬</div>
+          <div>
+            <h4>Direct communication</h4>
+            <p>No account managers, no lost-in-translation briefs. You talk directly to the person building your site.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials-section">
+  <div class="container">
+    <div class="section-label">Early Clients</div>
+    <h2 class="section-title">What founders are saying</h2>
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <div class="quote-icon">"</div>
+        <blockquote>We had a Korean-style corporate website for 3 years and got zero US leads. After HantoUS rebuilt it, we booked 4 investor meetings in the first month.</blockquote>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar" style="background:#0B6C5C">KJ</div>
+          <div>
+            <div class="t-name">Kim Jisoo</div>
+            <div class="t-role">CEO, NeuralKorea AI</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="quote-icon">"</div>
+        <blockquote>The copy alone was worth it. My Korean team wrote very formal, feature-heavy English. The rewrite was benefit-focused and sounded like a real US SaaS company.</blockquote>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar" style="background:#D4440C">SM</div>
+          <div>
+            <div class="t-name">Shin Mirae</div>
+            <div class="t-role">Founder, SeoulCommerce</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="quote-icon">"</div>
+        <blockquote>Stripe Atlas, Mercury, Cloudflare — set up in 2 weeks. I didn't have to figure any of it out myself. Our US legal and banking entity was ready to go.</blockquote>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar" style="background:#C8922A">HY</div>
+          <div>
+            <div class="t-name">Han Yoonsu</div>
+            <div class="t-role">CTO, MediFlow Korea</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA + FORMSPREE CONTACT FORM -->
+<section class="cta-section" id="contact">
+  <div class="container" style="position:relative;z-index:1">
+    <h2>Ready to enter the US market?</h2>
+    <p>Start with a free website audit. We'll identify exactly what's stopping American customers from converting — in 48 hours.</p>
+
+    <!-- ============================================================ -->
+    <!-- Formspree 연결 방법:                                         -->
+    <!-- 1. formspree.io 가입                                         -->
+    <!-- 2. New Form 생성 → endpoint URL 복사                         -->
+    <!-- 3. action="https://formspree.io/f/YOUR_FORM_ID" 로 교체     -->
+    <!-- ============================================================ -->
+    <form
+      id="contact-form"
+      action="https://formspree.io/f/YOUR_FORM_ID"
+      method="POST"
+      style="max-width:480px; margin: 2.5rem auto 0; display:flex; flex-direction:column; gap:12px;"
+    >
+      <input
+        type="text"
+        name="name"
+        placeholder="Your name / 이름"
+        required
+        style="padding:0.9rem 1.2rem; border-radius:12px; border:1px solid rgba(255,255,255,0.15); background:rgba(255,255,255,0.08); color:#fff; font-size:0.95rem; font-family:'DM Sans',sans-serif; outline:none;"
+      >
+      <input
+        type="email"
+        name="email"
+        placeholder="Work email / 이메일"
+        required
+        style="padding:0.9rem 1.2rem; border-radius:12px; border:1px solid rgba(255,255,255,0.15); background:rgba(255,255,255,0.08); color:#fff; font-size:0.95rem; font-family:'DM Sans',sans-serif; outline:none;"
+      >
+      <input
+        type="url"
+        name="website"
+        placeholder="Current website URL (if any)"
+        style="padding:0.9rem 1.2rem; border-radius:12px; border:1px solid rgba(255,255,255,0.15); background:rgba(255,255,255,0.08); color:#fff; font-size:0.95rem; font-family:'DM Sans',sans-serif; outline:none;"
+      >
+      <textarea
+        name="message"
+        placeholder="Tell us about your startup / 스타트업 소개"
+        rows="3"
+        style="padding:0.9rem 1.2rem; border-radius:12px; border:1px solid rgba(255,255,255,0.15); background:rgba(255,255,255,0.08); color:#fff; font-size:0.95rem; font-family:'DM Sans',sans-serif; outline:none; resize:vertical;"
+      ></textarea>
+      <button
+        type="submit"
+        class="btn-cta-white"
+        style="border:none; cursor:pointer; font-size:1rem; width:100%; justify-content:center;"
+      >
+        Get Your Free Audit →
+      </button>
+    </form>
+
+    <!-- 성공 메시지 (Formspree 제출 후 표시) -->
+    <div id="form-success" style="display:none; margin-top:1.5rem; padding:1rem 1.5rem; background:rgba(11,108,92,0.3); border:1px solid rgba(11,108,92,0.5); border-radius:12px; color:#fff; font-size:0.9rem;">
+      ✅ Received! We'll send your free audit within 48 hours. / 48시간 내로 연락드릴게요!
+    </div>
+
+    <div style="margin-top: 2rem; font-size: 0.82rem; color: rgba(255,255,255,0.25);">
+      No commitment required · Response within 24 hours · Korean & English spoken
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-logo">HantoUS</div>
+      <div style="font-size:0.78rem; margin-top:4px">한국 스타트업의 미국 진출을 돕습니다</div>
+    </div>
+    <nav class="footer-links">
+      <a href="#services">Services</a>
+      <a href="#portfolio">Portfolio</a>
+      <a href="#pricing">Pricing</a>
+      <a href="mailto:hello@hantous.io">Contact</a>
+    </nav>
+    <div class="footer-copy">© 2026 HantoUS · Built at Virginia Tech</div>
+  </div>
+</footer>
+
+<script>
+  // ── Smooth scroll ──────────────────────────────────────────────
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+
+  // ── Nav scroll shadow ──────────────────────────────────────────
+  window.addEventListener('scroll', () => {
+    const nav = document.querySelector('nav');
+    nav.style.boxShadow = window.scrollY > 20 ? '0 2px 20px rgba(0,0,0,0.08)' : 'none';
+  });
+
+  // ── Scroll reveal ──────────────────────────────────────────────
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.service-card, .stat-card, .portfolio-card, .pricing-card, .diff-card, .testimonial-card').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(20px)';
+    el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+    observer.observe(el);
+  });
+
+  // ── Formspree AJAX 제출 ────────────────────────────────────────
+  // Formspree ID 교체 후 아래 코드 자동 작동
+  const form = document.getElementById('contact-form');
+  const successMsg = document.getElementById('form-success');
+  const submitBtn = form ? form.querySelector('button[type="submit"]') : null;
+
+  if (form) {
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      submitBtn.textContent = 'Sending...';
+      submitBtn.disabled = true;
+
+      const data = new FormData(form);
+      try {
+        const res = await fetch(form.action, {
+          method: 'POST',
+          body: data,
+          headers: { 'Accept': 'application/json' }
+        });
+        if (res.ok) {
+          form.style.display = 'none';
+          successMsg.style.display = 'block';
+          // GA4 이벤트 트래킹 (GA4 연결 후 자동 작동)
+          if (typeof gtag !== 'undefined') {
+            gtag('event', 'form_submit', { event_category: 'contact', event_label: 'free_audit' });
+          }
+        } else {
+          submitBtn.textContent = 'Try again / 다시 시도';
+          submitBtn.disabled = false;
+        }
+      } catch(err) {
+        submitBtn.textContent = 'Try again / 다시 시도';
+        submitBtn.disabled = false;
+      }
+    });
+  }
+</script>
 </body>
 </html>
